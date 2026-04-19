@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "crons": [
+    {
+      "path": "/api/v1/cron/evaluate-alerts",
+      "schedule": "*/5 * * * *"
+    },
+    {
+      "path": "/api/v1/cron/health-sweep",
+      "schedule": "*/10 * * * *"
+    }
+  ],
+  "functions": {
+    "app/api/v1/assistant/route.ts": {
+      "maxDuration": 60
+    },
+    "app/api/v1/stream/quotes/route.ts": {
+      "maxDuration": 60
+    }
+  }
+}
